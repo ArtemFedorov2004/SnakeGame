@@ -1,6 +1,6 @@
-package models;
+package models.gameobjects;
 
-public class Wall extends GameObject {
+public class Wall implements Render {
   private final int width;
   private final int height;
 
