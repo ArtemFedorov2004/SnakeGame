@@ -10,7 +10,6 @@ import java.util.List;
 public class Scene {
   private final int width;
   private final int height;
-  private char[][] area;
   private List<GameObject> objectsOnScene;
 
   public Scene(int width, int height) {
@@ -18,17 +17,7 @@ public class Scene {
 
     this.width = width;
     this.height = height;
-    area = new char[height][width];
-    for (int i = 0; i < height; i++) {
-      for (int j = 0; j < width; j++) {
-        area[i][j] = ' ';
-      }
-    }
     objectsOnScene = new ArrayList<>();
-  }
-
-  public char[][] getArea() {
-    return area;
   }
 
   public int getWidth() {
@@ -47,6 +36,10 @@ public class Scene {
   public void addObject(Render object, int x, int y) {
     GameObject obj = new GameObject(object, x, y);
     objectsOnScene.add(obj);
+  }
+
+  public void addObject(GameObject object) {
+    objectsOnScene.add(object);
   }
 
   public List<GameObject> getObjects() {
